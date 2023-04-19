@@ -12,9 +12,6 @@
       "@navigation/*": [
         "navigation/*"
       ],
-      "@redux/*": [
-        "redux/*"
-      ],
       "@constants/*": [
         "constants/*"
       ],
