@@ -8,8 +8,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {SafeAreaView} from 'react-native';
-
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import AppFollow from './src/navigation/index';
 import LoginScreen from './src/screens/LoginPage/LoginPageScreen';
 
@@ -30,14 +29,14 @@ const theme = {
 function App(): JSX.Element {
   return (
     <PaperProvider theme={theme}>
-      <SafeAreaView>
+      <SafeAreaProvider>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="App" component={AppFollow} />
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-      </SafeAreaView>
+      </SafeAreaProvider>
     </PaperProvider>
   );
 }

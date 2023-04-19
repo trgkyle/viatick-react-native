@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomePage from '@navigation/HomeStack';
 import AppliancesStack from '@navigation/AppliancesStack';
@@ -14,18 +14,22 @@ const renderTabIcon = (
   size: number,
 ) => {
   let iconName;
+  console.log(route.name);
   switch (route.name) {
-    case 'Home':
-      iconName = focused ? 'home' : 'home';
+    case 'AppliancesStack':
+      iconName = focused ? 'construct-sharp' : 'construct-outline';
       break;
-    case 'Account':
-      iconName = focused ? 'user' : 'user';
+    case 'ChartsStack':
+      iconName = focused ? 'pie-chart' : 'pie-chart-outline';
       break;
-    case 'Like':
-      iconName = focused ? 'heart' : 'heart';
+    case 'HomeStack':
+      iconName = focused ? 'home' : 'home-outline';
+      break;
+    case 'SettingsStack':
+      iconName = focused ? 'settings' : 'settings-outline';
       break;
     default:
-      iconName = 'null';
+      iconName = 'pausecircle';
   }
   return <Icon name={iconName} size={size} color={color} />;
 };
