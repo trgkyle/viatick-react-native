@@ -1,9 +1,10 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomePage from './HomeStack';
-import Account from './Login';
-import HotelLike from './AppliancesStack';
+import HomePage from '@navigation/HomeStack';
+import AppliancesStack from '@navigation/AppliancesStack';
+import ChartsStack from '@navigation/ChartsStack';
+import SettingsStack from '@navigation/SettingsStack';
 const Tab = createBottomTabNavigator();
 
 const renderTabIcon = (
@@ -42,9 +43,10 @@ const AppFollow = () => {
       //   inactiveTintColor: 'gray',
       // }}
     >
-      <Tab.Screen name="Home" component={HomePage} />
-      <Tab.Screen name="Like" component={HotelLike} />
-      <Tab.Screen name="Account" component={Account} />
+      <Tab.Screen name="AppliancesStack" component={AppliancesStack} />
+      <Tab.Screen name="ChartsStack" component={ChartsStack} />
+      <Tab.Screen name="HomeStack" component={HomePage} />
+      <Tab.Screen name="SettingsStack" component={SettingsStack} />
     </Tab.Navigator>
   );
 };

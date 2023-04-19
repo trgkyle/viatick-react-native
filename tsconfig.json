@@ -32,6 +32,7 @@
   "include": [
     "src/**/**.tsx",
     "src/**/**.ts",
+    "src/navigation/HomeStack.tsx"
   ],
   "extends": "@tsconfig/react-native/tsconfig.json"
 }
