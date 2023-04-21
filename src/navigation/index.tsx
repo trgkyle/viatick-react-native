@@ -40,13 +40,11 @@ const AppFollow = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) =>
           renderTabIcon(route, focused, color, size),
-      })}
-      // tabBarOptions={{
-      //   keyboardHidesTabBar: true,
-      //   activeTintColor: '#358c63',
-      //   inactiveTintColor: 'gray',
-      // }}
-    >
+        keyboardHidesTabBar: true,
+        activeTintColor: '#358c63',
+        inactiveTintColor: 'gray',
+        headerShown: false,
+      })}>
       <Tab.Screen name="AppliancesStack" component={AppliancesStack} />
       <Tab.Screen name="ChartsStack" component={ChartsStack} />
       <Tab.Screen name="HomeStack" component={HomePage} />

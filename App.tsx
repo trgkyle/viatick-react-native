@@ -9,7 +9,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import AppFollow from './src/navigation/index';
+// import AppFollow from './src/navigation/index';
 import LoginScreen from './src/screens/LoginPage/LoginPageScreen';
 
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
@@ -31,8 +31,8 @@ function App(): JSX.Element {
     <PaperProvider theme={theme}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="App" component={AppFollow} />
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            {/* <Stack.Screen name="App" component={AppFollow} /> */}
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
