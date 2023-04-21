@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Button, Checkbox, TextInput, HelperText} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Logo from '../../components/Logo';
+import Logo from '../../components/Logo/Logo';
 
-const Login = () => {
+const LoginPageScreen = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
@@ -148,4 +148,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginPageScreen;
