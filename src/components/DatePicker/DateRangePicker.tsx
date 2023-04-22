@@ -113,14 +113,13 @@ const DateRangePicker = () => {
 
 const styles = StyleSheet.create({
   button: {
-    width: Dimensions.get('window').width - 40,
+    width: Dimensions.get('window').width - 20,
     height: 60,
     backgroundColor: '#FFFEFF',
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
-    marginLeft: 20,
     flexDirection: 'column',
   },
   buttonSelectText: {

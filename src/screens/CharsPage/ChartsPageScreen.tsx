@@ -1,11 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
-import {Appbar, Text} from 'react-native-paper';
-import DateRangePicker from '../../components/DatePicker/DateRangePicker';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {HomeScreenProps} from '../HomePage/screen.types';
-import CacbondioxideList from '../../components/CacbondioxideList/CacbondioxideList';
-
+import {StyleSheet, ScrollView} from 'react-native';
+import {Appbar} from 'react-native-paper';
+import DateRangePicker from '@components/DatePicker/DateRangePicker';
+import {HomeScreenProps} from '@screens/HomePage/screen.types';
+import TabComponent from '@components/TabChartComponent/TabChartComponent';
 const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
     <>
@@ -26,6 +24,7 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
       </Appbar.Header>
       <ScrollView contentContainerStyle={styles.container}>
         <DateRangePicker />
+        <TabComponent />
       </ScrollView>
     </>
   );
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flexGrow: 1,
+    marginHorizontal: 10,
   },
   viewWrapper: {
     flexGrow: 1,

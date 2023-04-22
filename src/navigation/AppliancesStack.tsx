@@ -1,15 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomePageScreen from '@screens/HomePage/HomePageScreen';
+import AppliancesPage from '../screens/AppliancesPage/AppliancesPageScreen';
 type AppliancesParamList = {
-  TestScreen: {name: string};
+  AppliancesScreen: {name: string};
 };
 
 const AppliancesStack = () => {
   const Stack = createStackNavigator<AppliancesParamList>();
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="TestScreen" component={HomePageScreen} />
+      <Stack.Screen name="AppliancesScreen" component={AppliancesPage} />
     </Stack.Navigator>
   );
 };

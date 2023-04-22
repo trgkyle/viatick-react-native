@@ -3,6 +3,10 @@ export type HomeStackParamList = {
   NotificationScreen: {name: string};
 };
 
+export type AppliancesStackParamList = {
+  AppliancesScreen: {name: string};
+};
+
 export type ChartsStackParamList = {
   TestScreen: {name: string};
   NotificationScreen: {name: string};
