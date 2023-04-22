@@ -4,16 +4,24 @@ import {Appbar, Text} from 'react-native-paper';
 import HeaderLogo from '../../components/Logo/LogoHeader';
 import DateRangePicker from '../../components/DatePicker/DateRangePicker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {HomeScreenProps} from './screen.types';
 import CacbondioxideList from '../../components/CacbondioxideList/CacbondioxideList';
 
-const HomePage = () => {
+const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
     <>
       <Appbar.Header style={styles.appBar}>
         <View style={styles.logoContainer}>
           <HeaderLogo />
         </View>
-        <Appbar.Action icon="bell" onPress={() => console.log('Pressed')} />
+        <Appbar.Action
+          icon="bell"
+          onPress={() => {
+            navigation.navigate('NotificationScreen', {
+              name: 'NotificationScreen',
+            });
+          }}
+        />
       </Appbar.Header>
       <ScrollView contentContainerStyle={styles.container}>
         <DateRangePicker />

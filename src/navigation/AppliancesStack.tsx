@@ -7,7 +7,6 @@ type AppliancesParamList = {
 
 const AppliancesStack = () => {
   const Stack = createStackNavigator<AppliancesParamList>();
-
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="TestScreen" component={HomePageScreen} />

@@ -114,7 +114,7 @@ const DateRangePicker = () => {
 const styles = StyleSheet.create({
   button: {
     width: Dimensions.get('window').width - 40,
-    height: 80,
+    height: 60,
     backgroundColor: '#FFFEFF',
     borderRadius: 50,
     justifyContent: 'center',

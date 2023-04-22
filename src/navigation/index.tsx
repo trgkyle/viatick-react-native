@@ -14,7 +14,6 @@ const renderTabIcon = (
   size: number,
 ) => {
   let iconName;
-  console.log(route.name);
   switch (route.name) {
     case 'AppliancesStack':
       iconName = focused ? 'construct-sharp' : 'construct-outline';
@@ -41,13 +40,12 @@ const AppFollow = () => {
         tabBarIcon: ({focused, color, size}) =>
           renderTabIcon(route, focused, color, size),
         keyboardHidesTabBar: true,
-        activeTintColor: '#358c63',
-        inactiveTintColor: 'gray',
         headerShown: false,
+        tabBarShowLabel: false,
       })}>
+      <Tab.Screen name="HomeStack" component={HomePage} />
       <Tab.Screen name="AppliancesStack" component={AppliancesStack} />
       <Tab.Screen name="ChartsStack" component={ChartsStack} />
-      <Tab.Screen name="HomeStack" component={HomePage} />
       <Tab.Screen name="SettingsStack" component={SettingsStack} />
     </Tab.Navigator>
   );
