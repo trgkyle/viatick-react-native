@@ -4,6 +4,7 @@ import {Appbar, Text} from 'react-native-paper';
 import HeaderLogo from '../../components/Logo/LogoHeader';
 import DateRangePicker from '../../components/DatePicker/DateRangePicker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import CacbondioxideList from '../../components/CacbondioxideList/CacbondioxideList';
 
 const HomePage = () => {
   return (
@@ -42,6 +43,7 @@ const HomePage = () => {
             </Text>
             <Text style={styles.cardText}>Difference: -20.63 %</Text>
           </View>
+          <CacbondioxideList />
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Card 4</Text>
             <Text style={styles.cardText}>Some text goes here...</Text>
