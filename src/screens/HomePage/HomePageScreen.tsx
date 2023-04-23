@@ -30,8 +30,15 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
       <ScrollView contentContainerStyle={styles.container}>
         <DateRangePicker />
         <View style={styles.viewWrapper}>
-          <View style={styles.card}>
-            <View style={styles.cardImage} />
+          <View style={styles.cardImageWrapper}>
+            <View style={styles.cardImageLeft}>
+              <Text style={styles.cardImageTextTitle}>Appliances</Text>
+              <Text style={styles.cardImageTextValue}>50%</Text>
+            </View>
+            <View style={styles.cardImageRight}>
+              <Text style={styles.cardImageTextTitle}>Water Heater</Text>
+              <Text style={styles.cardImageTextValue}>50%</Text>
+            </View>
           </View>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Your consumption data</Text>
@@ -112,12 +119,45 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
-  cardImage: {
-    width: '100%',
+  cardImageWrapper: {
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    elevation: 5,
+    marginVertical: 10,
+    padding: 20,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  cardImageLeft: {
+    width: '50%',
     height: 150,
-    backgroundColor: '#D8D6D9',
+    backgroundColor: '#DF5341',
     borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5,
+  },
+  cardImageRight: {
+    width: '50%',
+    height: 150,
+    backgroundColor: '#555459',
     borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
+  },
+  cardImageTextTitle: {
+    marginLeft: 5,
+    color: '#fff',
+    textAlign: 'left',
+    fontWeight: 'bold',
+  },
+  cardImageTextValue: {
+    color: '#fff',
+    textAlign: 'center',
+    marginTop: 50,
   },
   cardTitle: {
     fontSize: 16,
