@@ -52,6 +52,11 @@ const notifications: Notification[] = [
     title: 'Warning',
     description: 'Appliance ABC is not working',
   },
+  {
+    id: 9,
+    title: 'Warning',
+    description: 'Appliance ABC is not working',
+  },
 ];
 
 const iconRenderItem = () => (
