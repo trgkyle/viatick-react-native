@@ -32,7 +32,7 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
         <View style={styles.viewWrapper}>
           <View style={styles.cardImageWrapper}>
             <View style={styles.cardImageLeft}>
-              <Text style={styles.cardImageTextTitle}>Appliances</Text>
+              <Text style={styles.cardImageTextTitle}>Air Conditioner</Text>
               <Text style={styles.cardImageTextValue}>50%</Text>
             </View>
             <View style={styles.cardImageRight}>
