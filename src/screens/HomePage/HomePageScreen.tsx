@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  RefreshControl,
+} from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
 import HeaderLogo from '@components/Logo/LogoHeader';
 import DateRangePicker from '@components/DatePicker/DateRangePicker';
@@ -12,6 +18,15 @@ import HorizontalBarChart from '@components/HorizontalBarChart/HorizontalBarChar
 import EnergySavingTips from '@components/EnergySavingTips/EnergySavingTips';
 
 const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -27,7 +42,11 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
           }}
         />
       </Appbar.Header>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <DateRangePicker />
         <View style={styles.viewWrapper}>
           <View style={styles.cardImageWrapper}>

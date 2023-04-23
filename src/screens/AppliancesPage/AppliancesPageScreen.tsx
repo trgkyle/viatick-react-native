@@ -1,10 +1,25 @@
 import React from 'react';
-import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  RefreshControl,
+} from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
 import DateRangePicker from '@components/DatePicker/DateRangePicker';
 import {HomeScreenProps} from '@screens/HomePage/screen.types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const ChartPageScreen: React.FC<HomeScreenProps> = () => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -15,7 +30,11 @@ const ChartPageScreen: React.FC<HomeScreenProps> = () => {
         />
         <Appbar.Action icon="equalizer" />
       </Appbar.Header>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <DateRangePicker />
         <View>
           <Text>Total Appliances: 7</Text>

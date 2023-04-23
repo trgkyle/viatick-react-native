@@ -1,10 +1,19 @@
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, ScrollView, RefreshControl} from 'react-native';
 import {Appbar} from 'react-native-paper';
 import DateRangePicker from '@components/DatePicker/DateRangePicker';
 import {HomeScreenProps} from '@screens/HomePage/screen.types';
 import TabComponent from '@components/TabChartComponent/TabChartComponent';
 const ChartPageScreen: React.FC<HomeScreenProps> = () => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -15,7 +24,11 @@ const ChartPageScreen: React.FC<HomeScreenProps> = () => {
         />
         <Appbar.Action icon="filter" />
       </Appbar.Header>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <DateRangePicker />
         <TabComponent />
       </ScrollView>
