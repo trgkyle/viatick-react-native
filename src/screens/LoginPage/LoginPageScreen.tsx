@@ -1,23 +1,57 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Button, Checkbox, TextInput, HelperText} from 'react-native-paper';
+import {
+  Button,
+  Checkbox,
+  TextInput,
+  HelperText,
+  DefaultTheme,
+} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Logo from '../../components/Logo/Logo';
 import {LoginScreenProps} from './screen.types';
+import {loginAPI} from '../../apis/login';
 
 const LoginPageScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = React.useState('');
+  const [error, setError] = React.useState('');
+  const [buttonLoading, setButtonLoading] = React.useState(false);
+
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
   const [rememberMe, setRememberMe] = React.useState(false);
 
-  const handleLogin = () => {
-    navigation.navigate('App', {name: 'navigation'});
-    // handle login logic here
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#DB3B26',
+    },
+  };
+
+  const handleLogin = async () => {
+    setButtonLoading(true);
+    if (Boolean(error)) {
+      setButtonLoading(false);
+      return;
+    }
+    const data = await loginAPI(email, password);
+    if (data) navigation.navigate('App', {name: 'navigation'});
+    setButtonLoading(false);
   };
 
   const handleForgotPassword = () => {
     // handle forgot password logic here
+  };
+
+  const handleEmailChange = (emailP: string) => {
+    setEmail(emailP);
+    // Validate email format
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailP)) {
+      setError('Invalid email address');
+    } else {
+      setError('');
+    }
   };
 
   return (
@@ -32,8 +66,10 @@ const LoginPageScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             <TextInput
               label="Email"
               value={email}
-              onChangeText={setEmail}
+              onChangeText={handleEmailChange}
               keyboardType="email-address"
+              autoCapitalize="none"
+              error={Boolean(error)}
               style={styles.input}
               underlineColor="transparent"
             />
@@ -70,7 +106,12 @@ const LoginPageScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             </HelperText>
           </TouchableOpacity>
         </View>
-        <Button mode="contained" onPress={handleLogin} style={styles.button}>
+        <Button
+          mode="contained"
+          theme={theme}
+          onPress={handleLogin}
+          style={styles.button}
+          disabled={buttonLoading}>
           Login
         </Button>
         <TouchableOpacity onPress={handleForgotPassword}>
@@ -140,7 +181,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#DB3B26',
+    // backgroundColor: '#DB3B26',
     marginVertical: 10,
   },
   forgotPassword: {
