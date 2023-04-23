@@ -14,6 +14,13 @@ npm install
 npm run android | npm run ios
 ```
 
+3. Login test account
+
+```
+email: test@example.com
+password: test
+```
+
 ## Lib base used (No expo)
 
 - React Native Vector Icons
