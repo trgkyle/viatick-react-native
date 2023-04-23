@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
-import HeaderLogo from '../../components/Logo/LogoHeader';
-import DateRangePicker from '../../components/DatePicker/DateRangePicker';
+import HeaderLogo from '@components/Logo/LogoHeader';
+import DateRangePicker from '@components/DatePicker/DateRangePicker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {HomeScreenProps} from './screen.types';
-import CacbondioxideList from '../../components/CacbondioxideList/CacbondioxideList';
-import Provider from '../../components/Provider/Provider';
-import {providerData} from '../../constants/mockData';
-import HorizontalBarChart from '../../components/HorizontalBarChart/HorizontalBarChart';
+import CacbondioxideList from '@components/CacbondioxideList/CacbondioxideList';
+import Provider from '@components/Provider/Provider';
+import {providerData} from '@constants/mockData';
+import HorizontalBarChart from '@components/HorizontalBarChart/HorizontalBarChart';
 
 const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
