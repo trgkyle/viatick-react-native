@@ -2,7 +2,7 @@ import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Appbar, IconButton, List} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {NotificationProps} from './screen.types';
+import {NotificationProps} from '../HomePage/screen.types';
 
 export type Notification = {
   id: number;
@@ -70,7 +70,11 @@ const NotificationScreen: React.FC<NotificationProps> = ({navigation}) => {
           icon={() => iconRenderItem()}
           onPress={() => navigation.goBack()}
         />
-        <Appbar.Content title={'Alert Notifications'} />
+        <Appbar.Content
+          title={'Alert Notifications'}
+          style={styles.content}
+          titleStyle={styles.title}
+        />
       </Appbar.Header>
       <ScrollView style={styles.listContainer}>
         {notifications.map(notification => (
@@ -88,6 +92,15 @@ const NotificationScreen: React.FC<NotificationProps> = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    alignItems: 'center',
+    marginLeft: -40,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

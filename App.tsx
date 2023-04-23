@@ -9,11 +9,10 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-// import AppFollow from './src/navigation/index';
-import LoginScreen from './src/screens/LoginPage/LoginPageScreen';
-
+import AppFollow from './src/navigation/index';
+import NotificationScreen from './src/screens/NotificationPage/NotificationScreen';
+import LoginPageScreen from './src/screens/LoginPage/LoginPageScreen';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
-
 const Stack = createStackNavigator();
 
 const theme = {
@@ -32,8 +31,12 @@ function App(): JSX.Element {
       <SafeAreaProvider>
         <NavigationContainer>
           <Stack.Navigator screenOptions={{headerShown: false}}>
-            {/* <Stack.Screen name="App" component={AppFollow} /> */}
-            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="App" component={AppFollow} />
+            <Stack.Screen
+              name="NotificationScreen"
+              component={NotificationScreen}
+            />
+            <Stack.Screen name="LoginScreen" component={LoginPageScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

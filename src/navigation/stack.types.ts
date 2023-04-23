@@ -8,8 +8,12 @@ export type AppliancesStackParamList = {
 };
 
 export type SettingsStackParamList = {
+  LoginScreen: {name: string};
   SettingsScreen: {name: string};
   NotificationScreen: {name: string};
+  AlertSetupScreen: {name: string};
+  FeedbackScreen: {name: string};
+  ResetLoginPasswordScreen: {name: string};
 };
 
 export type ChartsStackParamList = {

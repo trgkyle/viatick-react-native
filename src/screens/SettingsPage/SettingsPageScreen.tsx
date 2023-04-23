@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Linking} from 'react-native';
 import {Switch, List, Appbar, Text} from 'react-native-paper';
 import {SettingsScreenProps} from './screen.types';
 
@@ -15,8 +15,22 @@ const SettingsPage: React.FC<SettingsScreenProps> = ({navigation}) => {
   const handleAlertNotificationsPress = () =>
     navigation.navigate('NotificationScreen', {name: 'NotificationScreen'});
   const handleSetUpAlertPress = () =>
-    navigation.navigate('NotificationScreen', {name: 'NotificationScreen'});
+    navigation.navigate('AlertSetupScreen', {name: 'AlertSetupScreen'});
+  const handleSetUpFAQPress = () => {
+    Linking.openURL('https://resynctech.com/');
+  };
+  const handleFeedBackPress = () =>
+    navigation.navigate('FeedbackScreen', {name: 'FeedbackScreen'});
 
+  const handleSetUpResetLoginPasswordPress = () =>
+    navigation.navigate('ResetLoginPasswordScreen', {
+      name: 'ResetLoginPasswordScreen',
+    });
+
+  const handleSetUpLogoutPress = () =>
+    navigation.navigate('LoginScreen', {
+      name: 'LoginScreen',
+    });
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -28,7 +42,7 @@ const SettingsPage: React.FC<SettingsScreenProps> = ({navigation}) => {
       </Appbar.Header>
       <View style={styles.container}>
         <List.Section>
-          <List.Subheader>Onboarding</List.Subheader>
+          <List.Subheader style={styles.titleHeader}>Onboarding</List.Subheader>
           <List.Item
             title="Onboarding Tutorial"
             description="Enable every time app opens"
@@ -42,7 +56,7 @@ const SettingsPage: React.FC<SettingsScreenProps> = ({navigation}) => {
         </List.Section>
 
         <List.Section>
-          <List.Subheader>Help</List.Subheader>
+          <List.Subheader style={styles.titleHeader}>Help</List.Subheader>
           <List.Item
             title="Alert Notifications"
             right={() => renderListIcon('bell')}
@@ -56,22 +70,22 @@ const SettingsPage: React.FC<SettingsScreenProps> = ({navigation}) => {
           <List.Item
             title="FAQs & Troubleshooting"
             right={() => renderListIcon('chevron-right')}
-            onPress={handleSetUpAlertPress}
+            onPress={handleSetUpFAQPress}
           />
           <List.Item
             title="Reset Login Password"
             right={() => renderListIcon('chevron-right')}
-            onPress={handleSetUpAlertPress}
+            onPress={handleSetUpResetLoginPasswordPress}
           />
           <List.Item
             title="Give Us Feedback"
             right={() => renderListIcon('chevron-right')}
-            onPress={handleSetUpAlertPress}
+            onPress={handleFeedBackPress}
           />
           <List.Item
             title="Logout"
             right={() => renderListIcon('logout')}
-            onPress={handleSetUpAlertPress}
+            onPress={handleSetUpLogoutPress}
           />
         </List.Section>
 
@@ -88,6 +102,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    fontWeight: 'bold',
+  },
+  titleHeader: {
+    fontSize: 16,
     fontWeight: 'bold',
   },
   appBar: {

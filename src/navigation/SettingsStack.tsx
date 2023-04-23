@@ -1,8 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import SettingsPageScreen from '../screens/SettingsPage/SettingsPageScreen';
+import SettingsPageScreen from '@screens/SettingsPage/SettingsPageScreen';
+import AlertSetupScreen from '@screens/NotificationPage/AlertSetup';
+import FeedbackScreen from '@screens/SettingsPage/FeedbackScreen';
+import ResetPasswordPageScreen from '@screens/SettingsPage/ResetLoginPassword';
 type SettingsParamList = {
-  TestScreen: {name: string};
+  SettingsScreen: {name: string};
+  AlertSetupScreen: {name: string};
+  FeedbackScreen: {name: string};
+  ResetLoginPasswordScreen: {name: string};
 };
 
 const SettingsStack = () => {
@@ -10,7 +16,13 @@ const SettingsStack = () => {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="TestScreen" component={SettingsPageScreen} />
+      <Stack.Screen name="SettingsScreen" component={SettingsPageScreen} />
+      <Stack.Screen name="AlertSetupScreen" component={AlertSetupScreen} />
+      <Stack.Screen name="FeedbackScreen" component={FeedbackScreen} />
+      <Stack.Screen
+        name="ResetLoginPasswordScreen"
+        component={ResetPasswordPageScreen}
+      />
     </Stack.Navigator>
   );
 };
