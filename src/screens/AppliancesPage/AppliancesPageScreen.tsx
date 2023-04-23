@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flexGrow: 1,
-    marginHorizontal: 10,
+    paddingHorizontal: 10,
   },
   viewWrapper: {
     flexGrow: 1,

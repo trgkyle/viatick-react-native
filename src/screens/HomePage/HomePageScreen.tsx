@@ -81,10 +81,10 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    paddingHorizontal: 10,
   },
   viewWrapper: {
     flexGrow: 1,
-    paddingHorizontal: 15,
     paddingVertical: 5,
   },
   appBar: {
