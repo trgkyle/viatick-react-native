@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const DateRangePicker = () => {
   const [visible, setVisible] = useState<boolean>(false);
   const [range, setRange] = useState<MarkedDates>({});
+  const [selectedRange, setSelectedRange] = useState<string>('');
 
   const onDayPress = (day: DateData) => {
     if (Object.keys(range).length === 2) {
@@ -72,7 +73,18 @@ const DateRangePicker = () => {
 
   const onConfirm = () => {
     setVisible(false);
-    // Do something with the selected range
+
+    // Extract start and end dates from range object
+    const dates = Object.keys(range);
+    const start = dates[0];
+    const end = dates[dates.length - 1];
+
+    // Format the selected range as a string
+    const formattedRange = `${new Date(start).toDateString()} - ${new Date(
+      end,
+    ).toDateString()}`;
+
+    setSelectedRange(formattedRange);
   };
 
   return (
@@ -82,7 +94,12 @@ const DateRangePicker = () => {
           <Text style={styles.buttonSelectText}>Select Date</Text>
           <View style={styles.buttonContent}>
             <Icon name="calendar-sharp" size={25} color={'#000'} />
-            <Text style={styles.buttonText}>Today</Text>
+
+            {selectedRange ? (
+              <Text style={styles.buttonText}>{selectedRange}</Text>
+            ) : (
+              <Text style={styles.buttonText}>Today</Text>
+            )}
             <Icon name="chevron-down" size={25} color={'#000'} />
           </View>
         </View>
@@ -130,7 +147,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#DB3B26',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 13,
   },
   buttonContent: {
     width: '100%',
@@ -145,6 +162,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 20,
     borderRadius: 10,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 10,
+  },
+  selectedRange: {
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    elevation: 3,
+    shadowOffset: {width: 1, height: 1},
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
   calendar: {
     marginBottom: 20,
