@@ -5,6 +5,7 @@ import HomePage from '@navigation/HomeStack';
 import AppliancesStack from '@navigation/AppliancesStack';
 import ChartsStack from '@navigation/ChartsStack';
 import SettingsStack from '@navigation/SettingsStack';
+import {StyleSheet, View} from 'react-native';
 const Tab = createBottomTabNavigator();
 
 const renderTabIcon = (
@@ -16,10 +17,10 @@ const renderTabIcon = (
   let iconName;
   switch (route.name) {
     case 'AppliancesStack':
-      iconName = focused ? 'construct-sharp' : 'construct-outline';
+      iconName = focused ? 'bulb' : 'bulb-outline';
       break;
     case 'ChartsStack':
-      iconName = focused ? 'pie-chart' : 'pie-chart-outline';
+      iconName = focused ? 'bar-chart' : 'bar-chart-outline';
       break;
     case 'HomeStack':
       iconName = focused ? 'home' : 'home-outline';
@@ -30,9 +31,29 @@ const renderTabIcon = (
     default:
       iconName = 'pausecircle';
   }
-  return <Icon name={iconName} size={size} color={color} />;
+  const buttonStyle = focused
+    ? styles.buttonTabBarActive
+    : styles.buttonTabBarInActive;
+  return (
+    <View style={buttonStyle}>
+      <Icon name={iconName} size={size} color={focused ? '#fff' : color} />
+    </View>
+  );
 };
 
+const styles = StyleSheet.create({
+  buttonTabBarActive: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: '#000',
+    borderRadius: 10,
+  },
+  buttonTabBarInActive: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+  },
+});
 const AppFollow = () => {
   return (
     <Tab.Navigator
