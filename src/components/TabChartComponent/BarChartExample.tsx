@@ -27,9 +27,6 @@ const BarChartExample: React.FC = () => {
         decimalPlaces: 0, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(223, 83, 65, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(223, 83, 65, ${opacity})`,
-        style: {
-          borderRadius: 16,
-        },
       }}
       verticalLabelRotation={-30}
     />
