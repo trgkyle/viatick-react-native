@@ -33,11 +33,11 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
           <View style={styles.cardImageWrapper}>
             <View style={styles.cardImageLeft}>
               <Text style={styles.cardImageTextTitle}>Air Conditioner</Text>
-              <Text style={styles.cardImageTextValue}>50%</Text>
+              <Text style={styles.cardImageTextValue}>59%</Text>
             </View>
             <View style={styles.cardImageRight}>
               <Text style={styles.cardImageTextTitle}>Water Heater</Text>
-              <Text style={styles.cardImageTextValue}>50%</Text>
+              <Text style={styles.cardImageTextValue}>41%</Text>
             </View>
           </View>
           <View style={styles.card}>
@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   cardImageLeft: {
-    width: '50%',
+    width: '59%',
     height: 150,
     backgroundColor: '#DF5341',
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
   },
   cardImageRight: {
-    width: '50%',
+    width: '41%',
     height: 150,
     backgroundColor: '#555459',
     borderTopRightRadius: 5,
