@@ -9,6 +9,7 @@ import CacbondioxideList from '@components/CacbondioxideList/CacbondioxideList';
 import Provider from '@components/Provider/Provider';
 import {providerData} from '@constants/mockData';
 import HorizontalBarChart from '@components/HorizontalBarChart/HorizontalBarChart';
+import EnergySavingTips from '@components/EnergySavingTips/EnergySavingTips';
 
 const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
@@ -63,16 +64,13 @@ const HomePage: React.FC<HomeScreenProps> = ({navigation}) => {
             <Text style={styles.cardText}>Difference: -20.63 %</Text>
             <View style={styles.horizontalBar} />
             <View>
-              <View></View>
-              <View></View>
               <HorizontalBarChart />
             </View>
           </View>
           <CacbondioxideList />
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Card 4</Text>
-            <Text style={styles.cardText}>Some text goes here...</Text>
-          </View>
+          <EnergySavingTips />
+          {/* <View style={styles.card}>
+          </View> */}
         </View>
       </ScrollView>
     </>
@@ -129,6 +127,7 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 16,
     marginBottom: 10,
+    color: '#DB3B26',
   },
   consumptionDataWrapper: {
     flexDirection: 'row',

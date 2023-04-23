@@ -78,3 +78,37 @@ export const providerData = [
     price: 0.34,
   },
 ];
+
+export type ISavingTipsItem = {
+  id: string;
+  icon: string;
+  title: string;
+  tip: string;
+};
+
+export const dataSavingTips: ISavingTipsItem[] = [
+  {
+    id: '1',
+    icon: 'air-conditioner',
+    title: 'Run your air-con for 1 hour and switch to a fan to cool a room',
+    tip: 'Save about $386 a year',
+  },
+  {
+    id: '2',
+    icon: 'kettle-outline',
+    title: "Switch off the water heater when hot water isn't needed",
+    tip: 'Save about $124 a year',
+  },
+  {
+    id: '3',
+    icon: 'car-brake-alert',
+    title: 'Cool down hot food before sotring in fridge',
+    tip: '',
+  },
+  {
+    id: '4',
+    icon: 'fridge-outline',
+    title: 'Cover foods in your fridge to avoid overworking the compressor',
+    tip: '',
+  },
+];
