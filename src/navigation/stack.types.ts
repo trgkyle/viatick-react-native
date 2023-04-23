@@ -1,5 +1,11 @@
+export type RootStackParamList = {
+  App: {name: string};
+  LoginScreen: {name: string};
+  NotificationScreen: {name: string};
+};
+
 export type HomeStackParamList = {
-  TestScreen: {name: string};
+  HomeScreen: {name: string};
   NotificationScreen: {name: string};
 };
 
@@ -17,6 +23,6 @@ export type SettingsStackParamList = {
 };
 
 export type ChartsStackParamList = {
-  TestScreen: {name: string};
+  ChartsScreen: {name: string};
   NotificationScreen: {name: string};
 };

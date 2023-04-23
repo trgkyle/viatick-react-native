@@ -3,14 +3,16 @@ import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Button, Checkbox, TextInput, HelperText} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Logo from '../../components/Logo/Logo';
+import {LoginScreenProps} from './screen.types';
 
-const LoginPageScreen = () => {
+const LoginPageScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
   const [rememberMe, setRememberMe] = React.useState(false);
 
   const handleLogin = () => {
+    navigation.navigate('App', {name: 'navigation'});
     // handle login logic here
   };
 

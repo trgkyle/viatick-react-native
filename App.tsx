@@ -31,12 +31,12 @@ function App(): JSX.Element {
       <SafeAreaProvider>
         <NavigationContainer>
           <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="LoginScreen" component={LoginPageScreen} />
             <Stack.Screen name="App" component={AppFollow} />
             <Stack.Screen
               name="NotificationScreen"
               component={NotificationScreen}
             />
-            <Stack.Screen name="LoginScreen" component={LoginPageScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
