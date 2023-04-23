@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
 import DateRangePicker from '@components/DatePicker/DateRangePicker';
 import {HomeScreenProps} from '@screens/HomePage/screen.types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+const ChartPageScreen: React.FC<HomeScreenProps> = () => {
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -13,20 +13,13 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
           style={styles.content}
           titleStyle={styles.title}
         />
-        <Appbar.Action
-          icon="equalizer"
-          onPress={() => {
-            navigation.navigate('NotificationScreen', {
-              name: 'NotificationScreen',
-            });
-          }}
-        />
+        <Appbar.Action icon="equalizer" />
       </Appbar.Header>
       <ScrollView contentContainerStyle={styles.container}>
         <DateRangePicker />
         <View>
           <Text>Total Appliances: 7</Text>
-          <View style={styles.card}>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -42,8 +35,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>40.04 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -59,8 +52,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>20.78 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -76,8 +69,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>10.21 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -93,8 +86,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>3.22 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -110,8 +103,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>1.42 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -127,8 +120,8 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>0.28 SGD</Text>
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
             <View style={{flexDirection: 'row'}}>
               <View>
                 <Icon
@@ -144,7 +137,7 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               </View>
             </View>
             <Text style={styles.cardPrice}>0.03 SGD</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>

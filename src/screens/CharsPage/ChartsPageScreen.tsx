@@ -4,7 +4,7 @@ import {Appbar} from 'react-native-paper';
 import DateRangePicker from '@components/DatePicker/DateRangePicker';
 import {HomeScreenProps} from '@screens/HomePage/screen.types';
 import TabComponent from '@components/TabChartComponent/TabChartComponent';
-const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+const ChartPageScreen: React.FC<HomeScreenProps> = () => {
   return (
     <>
       <Appbar.Header style={styles.appBar}>
@@ -13,14 +13,7 @@ const ChartPageScreen: React.FC<HomeScreenProps> = ({navigation}) => {
           style={styles.content}
           titleStyle={styles.title}
         />
-        <Appbar.Action
-          icon="filter"
-          onPress={() => {
-            navigation.navigate('NotificationScreen', {
-              name: 'NotificationScreen',
-            });
-          }}
-        />
+        <Appbar.Action icon="filter" />
       </Appbar.Header>
       <ScrollView contentContainerStyle={styles.container}>
         <DateRangePicker />
